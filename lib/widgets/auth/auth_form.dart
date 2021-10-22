@@ -8,7 +8,6 @@ class AuthForm extends StatefulWidget {
     this.isLoading,
   );
 
-  final bool isLoading;
   final void Function(
     String email,
     String password,
@@ -16,6 +15,8 @@ class AuthForm extends StatefulWidget {
     bool isLogin,
     BuildContext ctx,
   ) submitFn;
+
+  final bool isLoading;
 
   @override
   _AuthFormState createState() => _AuthFormState();
@@ -29,11 +30,11 @@ class _AuthFormState extends State<AuthForm> {
   String _userPassword = "";
 
   void _trySubmit() {
-    final isValid = _formKey.currentState.validate();
+    final isValid = _formKey.currentState!.validate();
     FocusScope.of(context).unfocus();
 
     if (isValid) {
-      _formKey.currentState.save();
+      _formKey.currentState!.save();
       widget.submitFn(
         _userEmail.trim(),
         _userPassword.trim(),
@@ -61,7 +62,7 @@ class _AuthFormState extends State<AuthForm> {
                   TextFormField(
                     key: ValueKey("email"),
                     validator: (value) {
-                      if (value.isEmpty || !value.contains('@')) {
+                      if (value!.isEmpty || !value!.contains('@')) {
                         return "Please enter a valid email address !";
                       }
                       return null;
@@ -72,14 +73,14 @@ class _AuthFormState extends State<AuthForm> {
                       labelText: "Email",
                     ),
                     onSaved: (value) {
-                      _userEmail = value;
+                      _userEmail = value!;
                     },
                   ),
                   if (!_isLogin)
                     TextFormField(
                       key: ValueKey("username"),
                       validator: (value) {
-                        if (value.isEmpty || value.length < 4) {
+                        if (value!.isEmpty || value.length < 4) {
                           return "Please enter at least 4 characters !";
                         }
                         return null;
@@ -88,13 +89,13 @@ class _AuthFormState extends State<AuthForm> {
                         labelText: "Username",
                       ),
                       onSaved: (value) {
-                        _userName = value;
+                        _userName = value!;
                       },
                     ),
                   TextFormField(
                     key: ValueKey("password"),
                     validator: (value) {
-                      if (value.isEmpty || value.length < 7) {
+                      if (value!.isEmpty || value.length < 7) {
                         return "Password must be at least 7 chracters long";
                       }
                       return null;
@@ -104,7 +105,7 @@ class _AuthFormState extends State<AuthForm> {
                     ),
                     obscureText: true,
                     onSaved: (value) {
-                      _userPassword = value;
+                      _userPassword = value!;
                     },
                   ),
                   SizedBox(

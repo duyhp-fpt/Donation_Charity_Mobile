@@ -20,7 +20,7 @@ class _AuthScreenState extends State<AuthScreen> {
     bool isLogin,
     BuildContext ctx,
   ) async {
-    AuthResult authResult;
+    UserCredential authResult;
 
     try {
       setState(() {
@@ -36,10 +36,10 @@ class _AuthScreenState extends State<AuthScreen> {
           email: email,
           password: password,
         );
-        await Firestore.instance
+        await FirebaseFirestore.instance
             .collection("user")
-            .document(authResult.user.uid)
-            .setData({
+            .doc(authResult.user!.uid)
+            .set({
           "username": username,
           "email": email,
         });
@@ -48,7 +48,7 @@ class _AuthScreenState extends State<AuthScreen> {
       var message = "An error occured, please check your credentials!";
 
       if (err.message != null) {
-        message = err.message;
+        message = err.message.toString();
       }
 
       // ignore: deprecated_member_use
