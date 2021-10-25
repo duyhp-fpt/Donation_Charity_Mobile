@@ -1,0 +1,1 @@
+static const IconData share = IconData(0xe593, fontFamily: 'MaterialIcons');
