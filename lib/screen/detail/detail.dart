@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:house_rent/list_activity/list_activity.dart';
+import 'package:house_rent/model/campaign.dart';
 import 'package:house_rent/model/charity.dart';
 import 'package:house_rent/screen/detail/widget/about.dart';
 import 'package:house_rent/screen/detail/widget/content_intro.dart';
@@ -7,8 +8,8 @@ import 'package:house_rent/screen/detail/widget/detail_app_bar.dart';
 import 'package:house_rent/screen/listdonate/list_donate.dart';
 
 class DetailPage extends StatelessWidget {
-  final Charity charity;
-  const DetailPage({Key? key, required this.charity}) : super(key: key);
+  final Campaign campaign;
+  const DetailPage({Key? key, required this.campaign}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,12 +17,12 @@ class DetailPage extends StatelessWidget {
             child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        DetailAppBar(charity: charity),
+        DetailAppBar(campaign: campaign),
         SizedBox(height: 20),
-        ContentIntro(charity: charity),
+        ContentIntro(campaign: campaign),
         SizedBox(height: 20),
         About(
-          charity: charity,
+          charity: campaign,
         ),
         SizedBox(height: 20),
         Container(

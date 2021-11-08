@@ -8,7 +8,7 @@ class Campaign {
   String? image;
   int? donationCaseId;
   String? cardNumber;
-  int? goal;
+  double? goal;
 
   Campaign(
       {this.campaignId,

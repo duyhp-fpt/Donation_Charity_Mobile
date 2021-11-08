@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:house_rent/model/campaign.dart';
 import 'package:house_rent/model/charity.dart';
 
 class DetailAppBar extends StatelessWidget {
-  final Charity charity;
-  const DetailAppBar({Key? key, required this.charity}) : super(key: key);
+  final Campaign campaign;
+  const DetailAppBar({Key? key, required this.campaign}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +13,8 @@ class DetailAppBar extends StatelessWidget {
       height: 400,
       child: Stack(
         children: [
-          Image.asset(
-            charity.imageUrl,
+          Image.network(
+            "http://20.115.21.3${campaign.image}",
             fit: BoxFit.cover,
             height: double.infinity,
           ),

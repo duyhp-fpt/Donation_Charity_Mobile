@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:house_rent/model/campaign.dart';
 import 'package:house_rent/model/charity.dart';
 
 class About extends StatelessWidget {
-  final Charity charity;
+  final Campaign charity;
 
   About({Key? key, required this.charity}) : super(key: key);
   @override
@@ -24,7 +25,7 @@ class About extends StatelessWidget {
           ),
           Text(
             // 'Enum veniam dolor sint ipsum culpa magna dolor incididunt laborum excepteu...',
-            charity.description,
+            "${charity.description}",
             style:
                 Theme.of(context).textTheme.bodyText1!.copyWith(fontSize: 14),
           )
