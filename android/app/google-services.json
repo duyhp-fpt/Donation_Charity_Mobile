@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "456546357576",
+    "project_id": "flutter-app-donation",
+    "storage_bucket": "flutter-app-donation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:456546357576:android:7148d683ee4f80a7f0a37d",
+        "android_client_info": {
+          "package_name": "com.example.house_rent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "456546357576-nte5j023md7qsuav68ae7h4b49fsqh53.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsD5uHvlHYYPo18O-P05z9aD1_FwTkdXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "456546357576-nte5j023md7qsuav68ae7h4b49fsqh53.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
