@@ -62,33 +62,35 @@ class RecommendedCharity extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                              "${snapshot.data![index].campaignName}",
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                                "${snapshot.data![index].campaignName}",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .headline1!
+                                                    .copyWith(
+                                                        fontSize: 16,
+                                                        fontWeight:
+                                                            FontWeight.bold)),
+                                            SizedBox(
+                                              height: 5,
+                                            ),
+                                            Text(
+                                              "${snapshot.data![index].description}",
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .headline1!
+                                                  .bodyText1!
                                                   .copyWith(
-                                                      fontSize: 16,
+                                                      fontSize: 12,
                                                       fontWeight:
-                                                          FontWeight.bold)),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          Text(
-                                            "${snapshot.data![index].description}",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyText1!
-                                                .copyWith(
-                                                    fontSize: 12,
-                                                    fontWeight:
-                                                        FontWeight.bold),
-                                          )
-                                        ],
+                                                          FontWeight.bold),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                       CircleIconButton(
                                           iconUrl: 'assets/icons/mark.svg',

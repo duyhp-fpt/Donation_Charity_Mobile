@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:house_rent/model/user.dart';
 import 'package:house_rent/screen/home/home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:house_rent/services/user_api.dart';
 
 class LoginPage extends StatefulWidget {
   final Function(User?) onSignIn;
@@ -19,6 +21,8 @@ class _LoginPageState extends State<LoginPage> {
   String error = '';
   bool isLogin = true;
   var obs = true;
+  DonatorInfo? donator;
+  Future<DonatorInfo>? donatorFuture;
 
   Future<void> loginUser() async {
     try {
@@ -52,9 +56,23 @@ class _LoginPageState extends State<LoginPage> {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
               email: _controllerEmail.text, password: _controllerPassword.text);
-      await FirebaseAuth.instance.currentUser!
-          .updateProfile(displayName: _controllerName.text);
-      print(userCredential.user);
+      userCredential.user!.updateDisplayName(_controllerName.text);
+      // userCredential.user!.updatePhoneNumber(_controllerPhoneNum);
+      print(userCredential.user!);
+      donator = DonatorInfo(
+        email: _controllerEmail.text,
+        password: _controllerPassword.text,
+        name: _controllerName.text,
+        phoneNumber: _controllerPhoneNum.text,
+        roleId: 3,
+        address: 'Đồng Nai',
+        uid: userCredential.user!.uid,
+      );
+      print(donator.toString());
+      // UserInfo userInfo = ;
+      setState(() {
+        donatorFuture = UserApi().createUser(donator!);
+      });
       widget.onSignIn(userCredential.user);
     } on FirebaseAuthException catch (e) {
       if (e.message!.contains('is empty')) {

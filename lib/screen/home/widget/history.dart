@@ -68,26 +68,29 @@ class History extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(width: 10),
-                                    Column(
-                                      children: [
-                                        Text(
-                                          "${el.campaignName}",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline1!
-                                              .copyWith(
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold),
-                                        ),
-                                        SizedBox(height: 10),
-                                        Text(
-                                          "${el.description}",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyText1!
-                                              .copyWith(fontSize: 12),
-                                        )
-                                      ],
+                                    Expanded(
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            "${el.campaignName}",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .headline1!
+                                                .copyWith(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                          ),
+                                          SizedBox(height: 10),
+                                          Text(
+                                            "${el.description}",
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1!
+                                                .copyWith(fontSize: 12),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),
